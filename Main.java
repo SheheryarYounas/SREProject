@@ -219,36 +219,58 @@ public class Main {
 					break;
 					
 				case 6:
-					Boolean cont = true;
-					System.out.println("Enter Group Name:");
-					input.nextLine();
-					String group = input.nextLine();
-					function.Iterate(contacts, 1);
-					function.getInfo(contacts.getSize(), contacts, 1);
-					
-					while (cont == true)
-					{
-						System.out.println("Enter ID's of Contacts to Add to this Group");
-						String ID = input.next();
-						index = function.BinarySearch(ID);
-						((Contacts) contacts.getMyArray()[index]).setGroup(group);
-						System.out.println("Add Another? (Y/N)");
-						String contin = input.next();
-						if (contin.equals("Y"))
-						{
-							cont = true;
-						}
-						else
-						{
-							cont = false;
-						}
+					System.out.println("Create a group");
+					System.out.println("1. Create a new group");
+					System.out.println("2. Add a contact to a group");
+					//Just two options are fine
+
+					option3 = input.nextInt();
+					switch (option3) {
+						case 1:
+							System.out.println("Enter the name of the group you wish to create:");
+							String newGroup = input.next();
+							Groups group = new Groups(newGroup);
+							break;
+						case 2:
+							System.out.println("Enter the name of the group you wish to add a contact to:");
+							String addGroup = input.next();
+							System.out.println("Enter the first name of the contact you wish to add:");
+							String addFirstName = input.next();
+							System.out.println("Enter the last name of the contact you wish to add:");
+							String addLastName = input.next();
+							for (int i = 0; i < contactList.size(); i++) {
+								if (contactList.get(i).getfName().equals(addFirstName) && contactList.get(i).getlName().equals(addLastName)) {
+									contactList.get(i).setGroup(addGroup);
+								}
+							}
+							break;
+						default:
+							System.out.println("Invalid option selected");
+							break;
 					}
-					
 					break;
 					
 					
 				case 7:
-					contacts.SelectionSortDate();
+					System.out.println("View recent birthdays");
+					System.out.println("Viewing birthdays for the past 30 days");
+					
+					for (int i = 0; i < contactList.size(); i++) {
+						String[] birthdays = contactList.get(i).getBirthday().split("-");
+						int day = Integer.parseInt(birthdays[0]);
+						int month = Integer.parseInt(birthdays[1]);
+						int year = Integer.parseInt(birthdays[2]);
+						Calendar cal = Calendar.getInstance();
+						cal.set(year, month, day);
+						cal.add(Calendar.DATE, -30);
+						Date dateBefore30Days = cal.getTime();
+						Date currentDate = new Date();
+						if (dateBefore30Days.compareTo(currentDate) < 0) {
+							System.out.println(contactList.get(i).getfName() + " " + contactList.get(i).getlName());
+						}
+					}
+
+					
 					break;
 					
 				case 8:
