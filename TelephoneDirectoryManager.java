@@ -261,6 +261,45 @@ public class TelephoneDirectoryManager {
         }
     }
 
+    public void run() throws ParseException {
+        int option;
+
+        do {
+            displayMenu();
+            option = input.nextInt();
+
+            switch (option) {
+                case 1:
+                    addContact();
+                    break;
+                case 2:
+                    deleteContact();
+                    break;
+                case 3:
+                    viewRecords();
+                    break;
+                case 4:
+                    updateRecord();
+                    break;
+                case 5:
+                    sortRecords();
+                    break;
+                case 6:
+                    createGroup();
+                    break;
+                case 7:
+                    viewRecentBirthdays();
+                    break;
+                case 8:
+                    searchByName();
+                    break;
+                default:
+                    System.out.println("Invalid Option Selected");
+            }
+
+        } while (option != 9);
+    }
+
 
     
     
