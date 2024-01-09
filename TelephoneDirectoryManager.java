@@ -30,4 +30,48 @@ public class TelephoneDirectoryManager {
         System.out.println("9. Quit");
         System.out.println("Input your desired option number below:");
     }
+
+    private void addContact() throws ParseException {
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Type in the following information:");
+        System.out.println("Enter First Name of Contact:");
+        input.nextLine();
+        String fname = input.nextLine();
+
+        System.out.println("Enter Last Name of Contact:");
+        String lname = input.nextLine();
+
+        System.out.println("Enter Phone Number of Contact:");
+        String phoneNumber = input.nextLine();
+
+        System.out.println("Enter Name of City:");
+        String cityname = input.nextLine();
+
+        System.out.println("Enter Name of Country:");
+        String country = input.nextLine();
+
+        System.out.println("Enter Residential Address:");
+        String address = input.nextLine();
+
+        System.out.println("Enter Name of Website:");
+        String website = input.nextLine();
+
+        System.out.println("Enter Mobile Number: ");
+        String mobile = input.nextLine();
+
+        System.out.println("Enter Name of Company:");
+        String company = input.nextLine();
+
+        System.out.println("Enter Birthday in DD-MM-YYYY");
+        String birthday = input.nextLine();
+        SimpleDateFormat sobj = new SimpleDateFormat("dd-MM-yyyy");
+        sobj.parse(birthday);
+        Contacts contact = new Contacts(fname, lname, phoneNumber, cityname, country, address, website, mobile, company, "-", ID, birthday);
+        contactList.add(contact);
+        ID++;
+
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("        Contact Added Successfully to Record");
+        System.out.println("-----------------------------------------------------------");
+    }
 }
