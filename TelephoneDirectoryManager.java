@@ -227,6 +227,27 @@ public class TelephoneDirectoryManager {
         }
     }
 
+    private void viewRecentBirthdays() {
+        System.out.println("View recent birthdays");
+        System.out.println("Viewing birthdays for the past 30 days");
+
+        for (int i = 0; i < contactList.size(); i++) {
+            String[] birthdays = contactList.get(i).getBirthday().split("-");
+            int day = Integer.parseInt(birthdays[0]);
+            int month = Integer.parseInt(birthdays[1]);
+            int year = Integer.parseInt(birthdays[2]);
+            Calendar cal = Calendar.getInstance();
+            cal.set(year, month, day);
+            cal.add(Calendar.DATE, -30);
+            Date dateBefore30Days = cal.getTime();
+            Date currentDate = new Date();
+            if (dateBefore30Days.compareTo(currentDate) < 0) {
+                System.out.println(contactList.get(i).getfName() + " " + contactList.get(i).getlName());
+            }
+        }
+    }
+
+
     
     
 
