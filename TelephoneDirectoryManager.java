@@ -300,11 +300,15 @@ public class TelephoneDirectoryManager {
         } while (option != 9);
     }
 
+    public void addContactForTesting() throws ParseException {
+        addContact();
+    }
 
-    
-    
+    public void deleteContactForTesting() {
+        deleteContact();
+    }
 
-
-
-
+    public ArrayList<Contacts> getContactListForTesting() {
+        return contactList;
+    }
 }
