@@ -36,7 +36,8 @@ public class Main {
 			System.out.println("5. Sort all Records in Ascending Order");
 			System.out.println("6. Create A Group");
 			System.out.println("7. View Recent Birthdays");
-			System.out.println("8. Quit");
+			System.out.println("8. Search by Name");
+			System.out.println("9. Quit");
 			System.out.println("Input your desired option number below:");
 			option = input.nextInt();
 			
@@ -274,7 +275,18 @@ public class Main {
 					break;
 					
 				case 8:
-					System.out.println("Quitting...");
+					System.out.println("Search by name");
+					System.out.println("Enter first name");
+					String searchFirstName = input.next();
+					System.out.println("Enter last name");
+					String searchLastName = input.next();
+
+					for (int i = 0; i < contactList.size(); i++) {
+						if (contactList.get(i).getfName().equals(searchFirstName) && contactList.get(i).getlName().equals(searchLastName)) {
+							System.out.println(contactList.get(i).getfName() + " " + contactList.get(i).getlName());
+						}
+					}
+					
 					break;
 					
 				default:
