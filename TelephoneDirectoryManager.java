@@ -98,4 +98,90 @@ public class TelephoneDirectoryManager {
         }
     }
 
+    private void updateRecord() {
+        System.out.println("Enter the first name of the contact you wish to update:");
+        String updateName = input.next();
+        System.out.println("Enter the last name of the contact you wish to update:");
+        String updateLastName = input.next();
+        System.out.println("Enter the field you wish to update:");
+        System.out.println("1. First Name");
+        System.out.println("2. Last Name");
+        System.out.println("3. Phone Number");
+        System.out.println("4. City");
+        System.out.println("5. Country");
+        System.out.println("6. Address");
+        System.out.println("7. Website");
+        System.out.println("8. Mobile");
+        System.out.println("9. Company");
+        System.out.println("10. Group");
+        System.out.println("11. Birthday");
+        int option2 = input.nextInt();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getfName().equals(updateName) && contactList.get(i).getlName().equals(updateLastName)) {
+                switch (option2) {
+                    case 1:
+                        System.out.println("Enter the new first name:");
+                        String newFirstName = input.next();
+                        contactList.get(i).setfName(newFirstName);
+                        break;
+                    case 2:
+                        System.out.println("Enter the new last name:");
+                        String newLastName = input.next();
+                        contactList.get(i).setlName(newLastName);
+                        break;
+                    case 3:
+                        System.out.println("Enter the new phone number:");
+                        String newPhoneNumber = input.next();
+                        contactList.get(i).setPhoneNumber(newPhoneNumber);
+                        break;
+                    case 4:
+                        System.out.println("Enter the new city:");
+                        String newCity = input.next();
+                        contactList.get(i).setCity(newCity);
+                        break;
+                    case 5:
+                        System.out.println("Enter the new country:");
+                        String newCountry = input.next();
+                        contactList.get(i).setCountry(newCountry);
+                        break;
+                    case 6:
+                        System.out.println("Enter the new address:");
+                        String newAddress = input.next();
+                        contactList.get(i).setAddress(newAddress);
+                        break;
+                    case 7:
+                        System.out.println("Enter the new website:");
+                        String newWebsite = input.next();
+                        contactList.get(i).setWebsite(newWebsite);
+                        break;
+                    case 8:
+                        System.out.println("Enter the new mobile:");
+                        String newMobile = input.next();
+                        contactList.get(i).setMobile(newMobile);
+                        break;
+                    case 9:
+                        System.out.println("Enter the new company:");
+                        String newCompany = input.next();
+                        contactList.get(i).setCompany(newCompany);
+                        break;
+                    case 10:
+                        System.out.println("Enter the new group:");
+                        String newGroup = input.next();
+                        contactList.get(i).setGroup(newGroup);
+                        break;
+                    case 11:
+                        System.out.println("Enter the new birthday:");
+                        String newBirthday = input.next();
+                        contactList.get(i).setBirthday(newBirthday);
+                        break;
+                    default:
+                        System.out.println("Invalid option selected");
+                        break;
+                }
+            }
+        }
+    }
+
+
 }
