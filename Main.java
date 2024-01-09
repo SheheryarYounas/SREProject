@@ -204,7 +204,18 @@ public class Main {
 					break;
 					
 				case 5:
-					contacts.SelectionSort();
+					System.out.println("Sort all records in ascending order");
+					//Just sort by ascending order using first name
+
+					for (int i = 0; i < contactList.size(); i++) {
+						for (int j = 0; j < contactList.size(); j++) {
+							if (contactList.get(i).getfName().compareTo(contactList.get(j).getfName()) < 0) {
+								Contacts temp = contactList.get(i);
+								contactList.set(i, contactList.get(j));
+								contactList.set(j, temp);
+							}
+						}
+					}
 					break;
 					
 				case 6:
