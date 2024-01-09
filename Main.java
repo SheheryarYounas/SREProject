@@ -21,7 +21,6 @@ public class Main {
 		
 		Scanner input = new Scanner(System.in);
 		ArrayList<Contacts> contactList = new ArrayList<Contacts>();
-		UserFunctions function = new UserFunctions();
 		Contacts contact1;
 		
 		System.out.println("-----------------------------------------------------------");
@@ -113,94 +112,10 @@ public class Main {
 					}
 					
 				case 3:
-					System.out.println("1. View Specific ID\n2. View Specific Contact by Name\n3. Print All Contacts in Tabular Form");
-					option2 = input.nextInt();
-					
-					
-					if (option2 == 1)
-					{
-						System.out.println("Enter the ID:");
-						key = input.next();
-						option3 = 1;
-						
-						function.getInfo(contacts.getSize(), contacts, option3);
-						index = function.BinarySearch(key);
-						if (index == - 1)
-						{
-							System.out.println("Error! Add Element");
-							break;
-						}
-						contact1 = (Contacts) contacts.getMyArray()[index];
-						System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-						System.out.printf("%5s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s", "ID", "FIRST NAME", "LAST NAME", "PHONE NUMBER", "CITY", "COUNTRY", "ADDRESS", "WEBSITE", "MOBILE", "COMPANY", "GROUP");
-						System.out.println();
-						System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-						System.out.printf("%5s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s", contact1.getUniqueID(), contact1.getfName(), contact1.getlName(), contact1.getPhoneNumber(), contact1.getCity(), contact1.getCountry(), contact1.getAddress(), contact1.getWebsite(), contact1.getMobile(), contact1.getCompany(), contact1.getGroup());
-						System.out.println();
-						System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-						
+					System.out.println("View all contacts");
+					for (int i = 0; i < contactList.size(); i++) {
+						System.out.println(contactList.get(i).getfName() + " " + contactList.get(i).getlName());
 					}
-					
-					else if (option2 == 2)
-					{
-						System.out.println("1. Search by First Name");
-						System.out.println("2. Search by Last Name");
-						option4 = input.nextInt();
-						
-						if (option4 == 1)
-						{
-							System.out.println("Enter Name:");
-							key = input.next();
-							option3 = 2;
-							function.getInfo(contacts.getSize(), contacts, option3);
-							index = function.BinarySearch(key);
-							if (index == - 1)
-							{
-								System.out.println("Error! Add Element");
-								break;
-							}
-							contact1 = (Contacts) contacts.getMyArray()[index];
-							System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-							System.out.printf("%5s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s", "ID", "FIRST NAME", "LAST NAME", "PHONE NUMBER", "CITY", "COUNTRY", "ADDRESS", "WEBSITE", "MOBILE", "COMPANY", "GROUP");
-							System.out.println();
-							System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-							System.out.printf("%5s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s", contact1.getUniqueID(), contact1.getfName(), contact1.getlName(), contact1.getPhoneNumber(), contact1.getCity(), contact1.getCountry(), contact1.getAddress(), contact1.getWebsite(), contact1.getMobile(), contact1.getCompany(), contact1.getGroup());
-							System.out.println();
-							System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-							
-						}
-						
-						else 
-						{
-							System.out.println("Enter Name:");
-							key = input.next();
-							option3 = 3;
-							function.getInfo(contacts.getSize(), contacts, option3);
-							index = function.BinarySearch(key);
-							if (index == - 1)
-							{
-								System.out.println("Error! Add Element");
-								break;
-							}
-							contact1 = (Contacts) contacts.getMyArray()[index];
-							System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-							System.out.printf("%5s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s", "ID", "FIRST NAME", "LAST NAME", "PHONE NUMBER", "CITY", "COUNTRY", "ADDRESS", "WEBSITE", "MOBILE", "COMPANY", "GROUP");
-							System.out.println();
-							System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-							System.out.printf("%5s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s", contact1.getUniqueID(), contact1.getfName(), contact1.getlName(), contact1.getPhoneNumber(), contact1.getCity(), contact1.getCountry(), contact1.getAddress(), contact1.getWebsite(), contact1.getMobile(), contact1.getCompany(), contact1.getGroup());
-							System.out.println();
-							System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-							
-						}
-						
-						
-					}
-					
-					else
-					{
-						function.Iterate(contacts, 1);
-					}
-					
 					break;
 					
 				case 4:
