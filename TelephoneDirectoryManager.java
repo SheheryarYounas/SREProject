@@ -197,6 +197,40 @@ public class TelephoneDirectoryManager {
         }
     }
 
+    private void createGroup() {
+        System.out.println("Create a group");
+        System.out.println("1. Create a new group");
+        System.out.println("2. Add a contact to a group");
+        int option3 = input.nextInt();
+        switch (option3) {
+            case 1:
+                System.out.println("Enter the name of the group you wish to create:");
+                String newGroup = input.next();
+                Groups group = new Groups(newGroup);
+                break;
+            case 2:
+                System.out.println("Enter the name of the group you wish to add a contact to:");
+                String addGroup = input.next();
+                System.out.println("Enter the first name of the contact you wish to add:");
+                String addFirstName = input.next();
+                System.out.println("Enter the last name of the contact you wish to add:");
+                String addLastName = input.next();
+                for (int i = 0; i < contactList.size(); i++) {
+                    if (contactList.get(i).getfName().equals(addFirstName) && contactList.get(i).getlName().equals(addLastName)) {
+                        contactList.get(i).setGroup(addGroup);
+                    }
+                }
+                break;
+            default:
+                System.out.println("Invalid option selected");
+                break;
+        }
+    }
+
+    
+    
+
+
 
 
 }
