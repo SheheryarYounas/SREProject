@@ -91,4 +91,11 @@ public class TelephoneDirectoryManager {
         }
     }
 
+    private void viewRecords() {
+        System.out.println("View all contacts");
+        for (int i = 0; i < contactList.size(); i++) {
+            System.out.println(contactList.get(i).getfName() + " " + contactList.get(i).getlName());
+        }
+    }
+
 }
