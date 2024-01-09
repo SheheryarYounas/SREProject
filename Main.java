@@ -1,12 +1,14 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.ArrayList;
 
 
 
 public class Main {
 	
 	private static long ID = 100;
+
 
 	public static void main(String[] args) throws ParseException { 
 		
@@ -18,7 +20,7 @@ public class Main {
 		String key;
 		
 		Scanner input = new Scanner(System.in);
-		GenericArrayList contacts = new GenericArrayList();
+		ArrayList<Contacts> contactList = new ArrayList<Contacts>();
 		UserFunctions function = new UserFunctions();
 		Contacts contact1;
 		
@@ -85,7 +87,7 @@ public class Main {
 					SimpleDateFormat sobj = new SimpleDateFormat("dd-MM-yyyy");
 					sobj.parse(birthday);
 					Contacts contact = new Contacts(fname, lname, phoneNumber, cityname, country, address, website, mobile, company, "-", ID, birthday);
-					contacts.Add(contact);
+					contactList.add(contact);
 					ID++;
 					
 					System.out.println("-----------------------------------------------------------");
@@ -95,49 +97,20 @@ public class Main {
 					break; //End of Case 1
 					
 				case 2:
-					function.Iterate(contacts, 2);
-					System.out.println("1. Remove by ID\n2. Remove by Name");
-					option2 = input.nextInt();
-					
-					if (option2 == 1)
-					{
-						System.out.println("Enter the ID:");
-						key = input.next();
-						option3 = 1;
-					}
-					
-					else
-					{
-						System.out.println("1. Search by First Name");
-						System.out.println("2. Search by Last Name");
-						option4 = input.nextInt();
-						
-						if (option4 == 1)
-						{
-							System.out.println("Enter Name:");
-							key = input.next();
-							option3 = 2;
+					//Delete a contact by name
+					System.out.println("Enter the first name of the contact you wish to delete:");
+					String deleteName = input.next();
+					System.out.println("Enter the last name of the contact you wish to delete:");
+					String deleteLastName = input.next();
+
+					for (int i = 0; i < contactList.size(); i++) {
+						if (contactList.get(i).getfName().equals(deleteName) && contactList.get(i).getlName().equals(deleteLastName)) {
+							contactList.remove(i);
+							System.out.println("-----------------------------------------------------------");
+							System.out.println("        Contact Deleted Successfully from Record");
+							System.out.println("-----------------------------------------------------------");
 						}
-						
-						else 
-						{
-							System.out.println("Enter Name:");
-							key = input.next();
-							option3 = 3;
-						}
-						
-						
 					}
-					
-					function.getInfo(contacts.getSize(), contacts, option3);
-					index = function.BinarySearch(key);
-					if (index == - 1)
-					{
-						System.out.println("Error! Add Element");
-						break;
-					}
-					contacts.Remove(index);
-					break;
 					
 				case 3:
 					System.out.println("1. View Specific ID\n2. View Specific Contact by Name\n3. Print All Contacts in Tabular Form");
