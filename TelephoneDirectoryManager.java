@@ -247,6 +247,20 @@ public class TelephoneDirectoryManager {
         }
     }
 
+     private void searchByName() {
+        System.out.println("Search by name");
+        System.out.println("Enter first name");
+        String searchFirstName = input.next();
+        System.out.println("Enter last name");
+        String searchLastName = input.next();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getfName().equals(searchFirstName) && contactList.get(i).getlName().equals(searchLastName)) {
+                System.out.println(contactList.get(i).getfName() + " " + contactList.get(i).getlName());
+            }
+        }
+    }
+
 
     
     
