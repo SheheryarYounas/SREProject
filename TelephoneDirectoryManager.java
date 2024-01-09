@@ -74,4 +74,21 @@ public class TelephoneDirectoryManager {
         System.out.println("        Contact Added Successfully to Record");
         System.out.println("-----------------------------------------------------------");
     }
+
+      private void deleteContact() {
+        System.out.println("Enter the first name of the contact you wish to delete:");
+        String deleteName = input.next();
+        System.out.println("Enter the last name of the contact you wish to delete:");
+        String deleteLastName = input.next();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getfName().equals(deleteName) && contactList.get(i).getlName().equals(deleteLastName)) {
+                contactList.remove(i);
+                System.out.println("-----------------------------------------------------------");
+                System.out.println("        Contact Deleted Successfully from Record");
+                System.out.println("-----------------------------------------------------------");
+            }
+        }
+    }
+
 }
